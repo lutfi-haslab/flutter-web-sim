@@ -36,17 +36,17 @@ RUN flutter pub get
 RUN flutter build web --web-renderer canvaskit
 
 
-EXPOSE 3000
-RUN flutter run --release -d web-server --web-hostname=0.0.0.0 --web-port=3000
-
 # once heare the app will be compiled and ready to deploy
 
-# # use nginx to deploy
-# FROM nginx:1.25.2-alpine
+# use nginx to deploy
+FROM nginx:1.25.2-alpine
 
-# # copy the info of the builded web app to nginx
-# COPY --from=build-env /app/build/web /usr/share/nginx/html
+# copy the info of the builded web app to nginx
+COPY --from=build-env /app/build/web /usr/share/nginx/html
 
-# # Expose and run nginx
-# EXPOSE 80
-# CMD ["nginx", "-g", "daemon off;"]
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 3000
+EXPOSE 3000
+
+CMD ["nginx", "-g", "daemon off;"]
