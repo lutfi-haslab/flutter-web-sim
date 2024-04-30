@@ -7,7 +7,8 @@ RUN apt-get install -y curl git unzip
 
 # define variables
 ARG FLUTTER_SDK=/usr/local/flutter
-ARG FLUTTER_VERSION=3.19.6
+# Flutter 3.19.6 = Dart 3.3.4
+ARG FLUTTER_VERSION=3.19.6 
 ARG APP=/app/
 
 #clone flutter
@@ -43,5 +44,5 @@ FROM nginx:1.25.2-alpine
 COPY --from=build-env /app/build/web /usr/share/nginx/html
 
 # Expose and run nginx
-EXPOSE 80
+EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
