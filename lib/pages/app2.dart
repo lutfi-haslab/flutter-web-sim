@@ -51,25 +51,25 @@ class _MicroApp1WidgetState extends State<MicroApp1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CupertinoPageScaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primary,
-        title: Text(
-          'MicroApp2',
-          style: FlutterFlowTheme.of(context).headlineMedium.override(
-                fontFamily: 'Outfit',
-                color: Colors.white,
-                fontSize: 22,
-                letterSpacing: 0,
-              ),
-        ),
-        actions: const [],
-        centerTitle: false,
-        elevation: 2,
-      ),
-      body: SafeArea(
+      // appBar: AppBar(
+      //   backgroundColor: FlutterFlowTheme.of(context).primary,
+      //   title: Text(
+      //     'MicroApp2',
+      //     style: FlutterFlowTheme.of(context).headlineMedium.override(
+      //           fontFamily: 'Outfit',
+      //           color: Colors.white,
+      //           fontSize: 22,
+      //           letterSpacing: 0,
+      //         ),
+      //   ),
+      //   actions: const [],
+      //   centerTitle: false,
+      //   elevation: 2,
+      // ),
+      child: SafeArea(
         top: true,
         child: SingleChildScrollView(
           child: Column(

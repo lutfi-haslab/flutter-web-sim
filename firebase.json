@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build/web",
+    "site": "web-sim",
     "ignore": [
       "firebase.json",
       "**/.*",

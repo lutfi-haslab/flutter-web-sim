@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:web_sim/pages/app1.dart';
-import 'package:web_sim/pages/app1/secondpage.screen.dart';
-import 'package:web_sim/pages/app2.dart';
+import 'package:web_sim/pages/detail-sim.screen.dart';
+import 'package:web_sim/pages/home.screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,28 +9,16 @@ void main() {
 
 /// The route configuration.
 final _router = GoRouter(
-  initialLocation: '/page1',
+  initialLocation: '/',
   routes: [
     GoRoute(
-      path: '/page1',
-      builder: (context, state) => const MicroApp(),
-      routes: [
-        GoRoute(
-          path: 'second-page',
-          builder: (context, state) => const SecondPage(),
-        ),
-      ],
+      path: '/',
+      builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      path: '/page2',
-      builder: (context, state) => const MicroApp1Widget(),
-      routes: [
-        GoRoute(
-          path: 'second-page',
-          builder: (context, state) => const SecondPage(),
-        ),
-      ],
-    ),
+      path: '/detail-sim',
+      builder: (context, state) => const DetailSimScreen(),
+    )
   ],
   routerNeglect: false,
 );
